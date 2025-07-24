@@ -13,9 +13,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const cancelBtn = document.getElementById('cancelBtn');
   const continueBtn = document.getElementById('continueBtn');
 
-  
-  openDialogBtn.style.display = 'none';
+  // === Mobile Menu Toggle ===
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
 
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // === Search Modal Toggle ===
+  const searchButton = document.getElementById('searchButton');
+  const searchButtonMobile = document.getElementById('searchButtonMobile');
+  const searchModal = document.getElementById('searchModal');
+  const closeSearch = document.getElementById('closeSearch');
+
+  if (searchButton && searchModal) {
+    searchButton.addEventListener('click', () => {
+      searchModal.classList.remove('hidden');
+    });
+  }
+
+  if (searchButtonMobile && searchModal) {
+    searchButtonMobile.addEventListener('click', () => {
+      searchModal.classList.remove('hidden');
+    });
+  }
+
+  if (closeSearch && searchModal) {
+    closeSearch.addEventListener('click', () => {
+      searchModal.classList.add('hidden');
+    });
+  }
+
+  if (openDialogBtn) {
+    openDialogBtn.style.display = 'none';
+  }
+
+  // === Handle Preset Amount Buttons ===
   amountButtons.forEach(button => {
     button.addEventListener('click', () => {
       const amount = button.dataset.amount;
@@ -24,44 +60,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // === Custom Amount Input ===
   customAmountInput.addEventListener('input', (e) => {
     updateTotal(e.target.value);
   });
 
+  // === Sync Total Display ===
   donationInput.addEventListener('input', (e) => {
     const val = parseFloat(e.target.value);
     totalAmount.textContent = isNaN(val) ? '0.00' : val.toFixed(2);
   });
 
+  // === Form Submit ===
   donationForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const donationVal = parseFloat(donationInput.value);
 
     if (isNaN(donationVal) || donationVal < 5) {
       errorModal();
-    } else {
+    } else if (alertDialog) {
       alertDialog.classList.remove('hidden');
     }
   });
 
-  cancelBtn.addEventListener('click', () => {
-    alertDialog.classList.add('hidden');
-  });
+  // === Dialog Actions ===
+  if (cancelBtn && alertDialog) {
+    cancelBtn.addEventListener('click', () => {
+      alertDialog.classList.add('hidden');
+    });
+  }
 
-  continueBtn.addEventListener('click', () => {
-    alertDialog.classList.add('hidden');
-    successModal();
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 6000);
-  });
+  if (continueBtn && alertDialog) {
+    continueBtn.addEventListener('click', () => {
+      alertDialog.classList.add('hidden');
+      successModal();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 6000);
+    });
+  }
 
+  // === Update Total Helper ===
   function updateTotal(amount) {
     const floatAmount = parseFloat(amount);
     totalAmount.textContent = isNaN(floatAmount) ? '0.00' : floatAmount.toFixed(2);
     donationInput.value = floatAmount || 0;
   }
 
+  // === Toast Modal Helper ===
   function createToastModal(id, message) {
     const modal = document.createElement('div');
     modal.id = id;
