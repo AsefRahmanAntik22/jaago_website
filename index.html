@@ -313,16 +313,121 @@
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <img src="asset/picture.png" alt="Sponsor Child" class="w-full h-100 object-cover">
         <div class="p-4">
-          <h3 class="font-bold text-lg mb-2">
-            SUPPORT A CHILD'S EDUCATION WITH ONLY $27/MONTH
-          </h3>
           <button class="w-full bg-yellow-400 hover:bg-yellow-300 text-black py-2 rounded-md font-bold">
             Sponsor A Child
           </button>
         </div>
       </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="asset/zakat.png" alt="Donate Zakat" class="w-full h-100 object-cover">
+        <div class="p-4">
+          <button class="w-full bg-yellow-400 hover:bg-yellow-300 text-black py-2 rounded-md font-bold">
+            Donate Zakat
+          </button>
+        </div>
+      </div>
     </div>
 
+
+    <!-- Donation Stats Section -->
+<section class="bg-yellow-50 py-6 px-4 rounded-lg shadow-md max-w-xl mx-auto mt-10 text-center">
+  <h2 class="text-2xl font-bold text-yellow-800 mb-4">📊 Today's Impact</h2>
+
+<div class="flex justify-around items-center text-lg font-semibold text-yellow-700 mb-6">
+  <div>
+    <p>🙌 Donors</p>
+    <p id="donorCountDonors" class="text-3xl font-bold">0</p>
+  </div>
+  <div>
+    <p>💰 Raised</p>
+    <p class="text-3xl font-bold">$<span id="amountRaisedDonors">0.00</span></p>
+  </div>
+</div>
+
+<div class="flex justify-around items-center text-lg font-semibold text-yellow-700 mb-6">
+  <div>
+    <p>🙌 Sponsor</p>
+    <p id="donorCountSponsor" class="text-3xl font-bold">0</p>
+  </div>
+  <div>
+    <p>💰 Raised</p>
+    <p class="text-3xl font-bold">$<span id="amountRaisedSponsor">0.00</span></p>
+  </div>
+</div>
+
+<div class="flex justify-around items-center text-lg font-semibold text-yellow-700 mb-6">
+  <div>
+    <p>🙌 Zakat</p>
+    <p id="donorCountZakat" class="text-3xl font-bold">0</p>
+  </div>
+  <div>
+    <p>💰 Raised</p>
+    <p class="text-3xl font-bold">$<span id="amountRaisedZakat">0.00</span></p>
+  </div>
+</div>
+
+<div class="flex justify-around items-center text-lg font-semibold text-yellow-700 mb-6">
+  <div>
+    <p>💰 Today's Total Raised Amount</p>
+    <p class="text-3xl font-bold">$<span id="amountRaisedTodayTotal">0.00</span></p>
+  </div>
+</div>
+
+
+   <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold text-center mb-2">
+      📊 Today's Support: 
+    </h2>
+    <p class="text-1xl font-bold text-center mb-2">children Benefited & Sector-Wise <br>Fund Usage</p>
+
+    <!-- Education -->
+    <div class="flex justify-between items-center text-lg font-semibold text-yellow-700 mb-4">
+      <div>
+        <p>📘 Education</p>
+        <p id="donorCountEducation" class="text-3xl font-bold">0</p>
+      </div>
+      <div>
+        <p>💰 Usage Amount</p>
+        <p class="text-3xl font-bold">$<span id="amountRaisedEducation">0.00</span></p>
+      </div>
+    </div>
+
+    <!-- Nutrition -->
+    <div class="flex justify-between items-center text-lg font-semibold text-yellow-700 mb-4">
+      <div>
+        <p>🍎 Nutrition</p>
+        <p id="donorCountNutrition" class="text-3xl font-bold">0</p>
+      </div>
+      <div>
+        <p>💰 Usage Amount</p>
+        <p class="text-3xl font-bold">$<span id="amountRaisedNutrition">0.00</span></p>
+      </div>
+    </div>
+
+    <!-- Health -->
+    <div class="flex justify-between items-center text-lg font-semibold text-yellow-700 mb-4">
+      <div>
+        <p>🩺 Health</p>
+        <p id="donorCountHealth" class="text-3xl font-bold">0</p>
+      </div>
+      <div>
+        <p>💰 Usage Amount</p>
+        <p class="text-3xl font-bold">$<span id="amountRaisedHealth">0.00</span></p>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="flex justify-center items-center text-lg font-semibold text-green-800 border-t pt-4 mt-4">
+      <div class="text-center">
+        <p>💰 Today's Total Usage Amount</p>
+        <p class="text-3xl font-bold">$<span id="amountRaisedTotal">0.00</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   </div>
 
 

@@ -130,4 +130,100 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     };
   }
+
+  // === Donation Stats Section ===
+  let donors = 0,
+      sponsors = 0,
+      zakatDonors = 0,
+      totalDonors = 0;
+
+  let amountDonors = 0,
+      amountSponsors = 0,
+      amountZakat = 0,
+      totalAmountRaised = 0;
+
+  let educationCount = 0,
+      nutritionCount = 0,
+      healthCount = 0;
+
+  let educationAmount = 0,
+      nutritionAmount = 0,
+      healthAmount = 0;
+
+  // Get elements by unique IDs
+  const donorCountDonorsEl = document.getElementById('donorCountDonors');
+  const amountRaisedDonorsEl = document.getElementById('amountRaisedDonors');
+
+  const donorCountSponsorEl = document.getElementById('donorCountSponsor');
+  const amountRaisedSponsorEl = document.getElementById('amountRaisedSponsor');
+
+  const donorCountZakatEl = document.getElementById('donorCountZakat');
+  const amountRaisedZakatEl = document.getElementById('amountRaisedZakat');
+
+  const amountRaisedTodayTotalEl = document.getElementById('amountRaisedTodayTotal');
+
+  const donorCountEducationEl = document.getElementById('donorCountEducation');
+  const amountRaisedEducationEl = document.getElementById('amountRaisedEducation');
+
+  const donorCountNutritionEl = document.getElementById('donorCountNutrition');
+  const amountRaisedNutritionEl = document.getElementById('amountRaisedNutrition');
+
+  const donorCountHealthEl = document.getElementById('donorCountHealth');
+  const amountRaisedHealthEl = document.getElementById('amountRaisedHealth');
+
+  const amountRaisedTotalEl = document.getElementById('amountRaisedTotal');
+
+  function updateStats() {
+    // Simulate increments for donors
+    donors += Math.floor(Math.random() * 3);
+    sponsors += Math.floor(Math.random() * 2);
+    zakatDonors += Math.floor(Math.random() * 2);
+
+    // Simulate amounts raised randomly for each category
+    amountDonors += (Math.random() * 300 + 50);
+    amountSponsors += (Math.random() * 500 + 100);
+    amountZakat += (Math.random() * 200 + 50);
+
+    // Sector-wise counts and amounts
+    educationCount += Math.floor(Math.random() * 2);
+    nutritionCount += Math.floor(Math.random() * 2);
+    healthCount += Math.floor(Math.random() * 2);
+
+    educationAmount += (Math.random() * 150 + 50);
+    nutritionAmount += (Math.random() * 100 + 30);
+    healthAmount += (Math.random() * 120 + 40);
+
+    // Total sums
+    totalDonors = donors + sponsors + zakatDonors;
+    totalAmountRaised = amountDonors + amountSponsors + amountZakat;
+    const totalSectorAmount = educationAmount + nutritionAmount + healthAmount;
+
+    // Update DOM
+    if(donorCountDonorsEl) donorCountDonorsEl.textContent = donors;
+    if(amountRaisedDonorsEl) amountRaisedDonorsEl.textContent = amountDonors.toFixed(2);
+
+    if(donorCountSponsorEl) donorCountSponsorEl.textContent = sponsors;
+    if(amountRaisedSponsorEl) amountRaisedSponsorEl.textContent = amountSponsors.toFixed(2);
+
+    if(donorCountZakatEl) donorCountZakatEl.textContent = zakatDonors;
+    if(amountRaisedZakatEl) amountRaisedZakatEl.textContent = amountZakat.toFixed(2);
+
+    if(amountRaisedTodayTotalEl) amountRaisedTodayTotalEl.textContent = totalAmountRaised.toFixed(2);
+
+    if(donorCountEducationEl) donorCountEducationEl.textContent = educationCount;
+    if(amountRaisedEducationEl) amountRaisedEducationEl.textContent = educationAmount.toFixed(2);
+
+    if(donorCountNutritionEl) donorCountNutritionEl.textContent = nutritionCount;
+    if(amountRaisedNutritionEl) amountRaisedNutritionEl.textContent = nutritionAmount.toFixed(2);
+
+    if(donorCountHealthEl) donorCountHealthEl.textContent = healthCount;
+    if(amountRaisedHealthEl) amountRaisedHealthEl.textContent = healthAmount.toFixed(2);
+
+    if(amountRaisedTotalEl) amountRaisedTotalEl.textContent = totalSectorAmount.toFixed(2);
+  }
+
+  // Update stats every 4 seconds
+  updateStats();
+  setInterval(updateStats, 4000);
+
 });
